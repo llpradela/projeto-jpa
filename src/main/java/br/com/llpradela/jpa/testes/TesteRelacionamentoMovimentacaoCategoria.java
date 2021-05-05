@@ -24,19 +24,19 @@ public class TesteRelacionamentoMovimentacaoCategoria {
 		conta.setId(1l);
 		
 		Movimentacao movimentacao = new Movimentacao();
-		movimentacao.setDescricao("Viagem a Montecarlo");
+		movimentacao.setDescricao("Viagem a sergipe");
 		movimentacao.setTipoMovimentacao(TipoMovimentacao.SAIDA);
 		movimentacao.setData(LocalDateTime.now());
-		movimentacao.setValor(new BigDecimal(500.0));
+		movimentacao.setValor(new BigDecimal(699.0));
 		//método que insere uma lista de categorias
 		movimentacao.setCategoria(Arrays.asList(categoria, categoria2));
 		movimentacao.setConta(conta); 
 		
 		Movimentacao movimentacao2 = new Movimentacao();
-		movimentacao2.setDescricao("Viagem ao litoral");
+		movimentacao2.setDescricao("Viagem ao parana");
 		movimentacao2.setTipoMovimentacao(TipoMovimentacao.SAIDA);
-		movimentacao2.setData(LocalDateTime.now());
-		movimentacao2.setValor(new BigDecimal(400.0));
+		movimentacao2.setData(LocalDateTime.now().plusDays(1));
+		movimentacao2.setValor(new BigDecimal(22.0));
 		//método que insere uma lista de categorias
 		movimentacao2 .setCategoria(Arrays.asList(categoria, categoria2));
 		movimentacao.setConta(conta); 

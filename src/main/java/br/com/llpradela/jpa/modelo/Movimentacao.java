@@ -13,7 +13,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.NamedQuery;
+
 import br.com.llpradela.jpa.constant.TipoMovimentacao;
+
+@NamedQuery(name="mediaComDataMovimentacao", query=
+"select new br.com.llpradela.jpa.modelo.MediaComData("
++ "day(m.data), month(m.data), avg(m.valor)) "
++ " from Movimentacao m group by day(m.data), month(m.data), year(m.data)")
 
 @Entity
 public class Movimentacao {
@@ -34,6 +41,11 @@ public class Movimentacao {
 
 	@ManyToMany //X movimentacoes podem ter X categorias
 	private List<Categoria> categoria;
+	
+	@Override
+	public String toString() {
+		return this.getDescricao() + ":" + this.getValor();
+	}
 	
 	public Long getId() {
 		return id;

@@ -20,7 +20,8 @@ public class Cliente {
 	@JoinColumn(unique = true) // so funciona se estiver com essa anotação na 
 								//hora da criação da tabela (não
 								// atualiza)
-	@OneToOne
+	
+	@OneToOne // carregamento ...toOne é natutalmente Eager
 	private Conta conta;
 
 	public Long getId() {
